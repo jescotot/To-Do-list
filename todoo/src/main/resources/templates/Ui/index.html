@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragmaent=""head>
+        <meta charset="UTF-8"/>
+        <title th:text="${title}">To-Do-List</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <body class="container">
+        <nav th:fragment="fragments :: navigation">
+            <a href="">list</a>
+        </nav>
+    <table class="table">
+        <th>id</th>
+        <th>title</th>
+        <th>description</th>
+        <th>todolist</th>
+
+        <tr th:each="task : ${task_list}" th:text="${task}">
+            <td th:text="task.id"></td>
+            <td th:text="task.title"></td>
+            <td th:text="task.description"></td>
+            <td th:text="task.todolist.title"></td>
+        </tr>
+        <ul>
+            <li th:each="task : ${task_list}" th:text="${task}"></li>
+        </ul>
+    </table>
+    </body>
+</html>
